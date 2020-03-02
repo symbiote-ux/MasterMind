@@ -1,0 +1,57 @@
+#heading {
+  border: 1px solid black;
+  height: 50px;
+  display: flex;
+}
+
+#gameArea {
+  border: 1px solid black;
+  height: 640px;
+  display: flex;
+}
+
+#gameName {
+  text-align: center;
+  width: 400px;
+  height: 100%;
+  border: 1px solid black;
+}
+
+#correctCode {
+  border: 1px solid black;
+  width: 400px;
+  display: flex;
+}
+
+.displayCorrectCode {
+  border: 1px solid black;
+  width: 50px;
+}
+
+#clueBox,
+#playerMoveBox {
+  border: 1px solid black;
+  width: 400px;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+#colorsBox {
+  border: 1px solid black;
+  width: 100px;
+  height: 100%;
+}
+
+.row {
+  height: 20px;
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+}
+
+.col {
+  width: 20px;
+  height: 100%;
+  border: 1px solid black;
+}
