@@ -35,7 +35,7 @@ const createColorBox = () => {
 
 const createPlayerMoveBox = () => {
   const playerMoveBox = document.querySelector('#playerMoveBox');
-  const imgSrc = '../images/like.png';
+  const imgSrc = '../images/like.jpg';
   createGrid('PM_Row', playerMoveBox, imgSrc, 'row', 'col');
 };
 
