@@ -3,6 +3,7 @@ const randNum = () => Math.floor(Math.random() * 2);
 class Game {
   constructor(code) {
     this.code = code;
+    this.noOfAttempts = 1;
   }
   static createCode() {
     const colorsList = colors();
@@ -17,5 +18,4 @@ class Game {
   keyCode() {
     return this.code;
   }
-  
 }

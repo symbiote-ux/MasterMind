@@ -48,24 +48,24 @@
 #playerMoveBox {
   width: 340px;
   height: 100%;
-  margin: 10px 8px 0px;
+  margin: 0px 8px 0px;
   display: flex;
-  flex-flow: column;
+  flex-flow: column-reverse;
 }
 
 #clueBox {
   width: 170px;
   height: 100%;
   display: flex;
-  flex-flow: column;
-  margin: 7px 20px 0px;
+  flex-flow: column-reverse;
+  margin: 0px 20px 0px;
 }
 
 .clueRow {
   height: 30px;
   width: 100%;
   display: flex;
-  margin: 3px;
+  margin: 0px 3px 6px;
 }
 
 .clueCol {
@@ -101,7 +101,7 @@
   height: 32px;
   width: 32px;
   border-radius: 4px;
-  margin: 1px 3px 0px;
+  margin: 1px 3px 7px;
   box-shadow: -1px -1px 4px 1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }

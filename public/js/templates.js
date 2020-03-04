@@ -3,7 +3,20 @@ const addImage = imgPath => {
   if (!imgPath) return img;
   img.src = imgPath;
   img.className = 'logo';
+  img.id = 'IMG';
   return img;
+};
+
+const enableRow = (noOfAttempt = 1) => {
+  const rowId = `PM_Row_${noOfAttempt}`;
+  const row = document.getElementById(rowId);
+  const imgBtn = row.querySelector('#IMG');
+  // imgBtn.addEventListener('click', checkCode);
+  const colList = Array.from(row.querySelectorAll('.col'));
+  colList.forEach(col => {
+    col.addEventListener('drop', handleDrop);
+    col.addEventListener('dragover', allowDrop);
+  });
 };
 
 const createGrid = (id, box, imgSrc, row, col) => {
@@ -29,6 +42,8 @@ const createColorBox = () => {
     box.id = color;
     box.style.backgroundColor = color;
     box.className = 'colorOption';
+    box.draggable = 'true';
+    box.addEventListener('dragstart', handleDrag);
     colorsBox.appendChild(box);
   });
 };
@@ -48,4 +63,5 @@ const setup = () => {
   createClueBox();
   createPlayerMoveBox();
   createColorBox();
+  enableRow();
 };
