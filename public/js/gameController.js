@@ -1,14 +1,4 @@
-const colors = () => [
-  'red',
-  'blue',
-  'green',
-  'pink',
-  'black',
-  'lime',
-  'grey',
-  'orange',
-  'yellow'
-];
+const colors = () => [ 'red', 'blue', 'green', 'pink', 'black', 'lime', 'grey', 'orange', 'yellow' ];
 
 const fillCode = code => {
   const codeBox = Array.from(document.querySelectorAll('.displayCorrectCode'));
@@ -27,15 +17,12 @@ const enableRow = (noOfAttempt = 1) => {
   });
 };
 
-const displayClue = (rightColor, rightColorAndPos, noOfAttempt = 1) => {
-  const rowId = `CB_Row_${noOfAttempt}`;
+const displayClue = (rightColor, rightColorAndPos, attempt) => {
+  const rowId = `CB_Row_${attempt}`;
   const clueBox = document.getElementById(rowId);
   const colList = Array.from(clueBox.querySelectorAll('.clueCol'));
-  for (let index = 0; index < rightColor; index++) {
-    colList[index].style.backgroundColor = 'green';
-  }
-  for (let index = 0; index < rightColorAndPos; index++) {
-    colList[index].style.backgroundColor = 'black';
+  for (let i = 0; i < rightColor; i++) {
+    colList[i].style.backgroundColor = i < rightColorAndPos ? 'green' : 'yellow';
   }
 };
 
@@ -43,10 +30,8 @@ const checkCode = function() {
   const row = event.target.parentElement;
   const playerMoves = Array.from(row.querySelectorAll('.col'));
   const playerCode = playerMoves.map(move => move.style.backgroundColor);
-  const { rightColor, rightColorAndPos, attempt } = this.compareCode(
-    playerCode
-  );
-  displayClue(rightColor, rightColorAndPos, attempt);
+  const { rightColorCount, rightColorAndPosCount, attempt } = this.compareCode( playerCode );
+  displayClue(rightColorCount, rightColorAndPosCount, attempt);
 };
 
 const attachEventListener = game => {
@@ -58,7 +43,7 @@ const main = () => {
   setup();
   const game = Game.createCode();
   attachEventListener(game);
-  fillCode(game.keyCode());
+  fillCode(game.keyCode);
   enableRow();
 };
 

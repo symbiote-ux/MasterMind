@@ -109,16 +109,15 @@ body {
   border-radius: 4px;
   margin: 1px 3px 7px;
   box-shadow: -1px -1px 4px 1px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
 }
 
 .logo:hover,
 .colorOption:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .colorOption {
-  cursor: pointer;
   width: 40px;
   height: 40px;
   margin: 5px 5px 10px;

@@ -1,10 +1,6 @@
-const handleDrag = e => {
-  e.dataTransfer.setData('id', e.target.id);
-};
+const handleDrag = e => e.dataTransfer.setData('id', e.target.id);
 
-const allowDrop = e => {
-  e.preventDefault();
-};
+const allowDrop = e => e.preventDefault();
 
 const handleDrop = e => {
   e.preventDefault();

@@ -16,27 +16,21 @@ class Game {
     const game = new Game(key);
     return game;
   }
-  keyCode() {
+  get keyCode() {
     return this.code;
   }
   compareCode(playerCode) {
-    let rightColor = 0;
-    let rightColorAndPos = 0;
+    let rightColorCount = 0;
+    let rightColorAndPosCount = 0;
     let rightCode = [...this.code];
     playerCode.forEach((color, index) => {
-      if (color === this.code[index]) {
-        rightColorAndPos += 1;
-      }
+      if (color === this.code[index]) rightColorAndPosCount += 1;
       if (rightCode.includes(color)) {
-        rightColor += 1;
-        const i = rightCode.indexOf(color);
-        rightCode.splice(i, 1);
+        rightColorCount += 1;
+        const indexOfColor = rightCode.indexOf(color);
+        rightCode.splice(indexOfColor, 1);
       }
     });
-    return {
-      rightColor,
-      rightColorAndPos,
-      attempt: this.noOfAttempts
-    };
+    return { rightColorCount, rightColorAndPosCount, attempt: this.noOfAttempts };
   }
 }
