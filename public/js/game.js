@@ -3,7 +3,7 @@ const randNum = () => Math.floor(Math.random() * 2);
 class Game {
   constructor(code) {
     this.code = code;
-    this.noOfAttempts = 1;
+    this.attempts = 1;
   }
   static createCode() {
     const colorsList = colors();
@@ -19,6 +19,10 @@ class Game {
   get keyCode() {
     return this.code;
   }
+  countAttempt(){
+    this.attempts += 1;
+    return this.attempts;
+  }
   compareCode(playerCode) {
     let rightColorCount = 0;
     let rightColorAndPosCount = 0;
@@ -31,6 +35,9 @@ class Game {
         rightCode.splice(indexOfColor, 1);
       }
     });
-    return { rightColorCount, rightColorAndPosCount, attempt: this.noOfAttempts };
+    return { rightColorCount, rightColorAndPosCount, attempt: this.attempts };
+  }
+  isCodeCracked(rightColorAndPosCount){
+    return rightColorAndPosCount === this.code.length;
   }
 }

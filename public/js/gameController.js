@@ -7,6 +7,17 @@ const fillCode = code => {
   });
 };
 
+const disableRow = attempt => {
+  const rowId = `PM_Row_${attempt}`;
+  const row = document.getElementById(rowId);
+  const colList = Array.from(row.querySelectorAll('.col'));
+  colList.forEach(col => {
+    col.removeEventListener('drop', handleDrop);
+    col.removeEventListener('dragover', allowDrop);
+  });
+  row.querySelector('.logo').style.pointerEvents = 'none';
+}
+
 const enableRow = (noOfAttempt = 1) => {
   const rowId = `PM_Row_${noOfAttempt}`;
   const row = document.getElementById(rowId);
@@ -15,6 +26,7 @@ const enableRow = (noOfAttempt = 1) => {
     col.addEventListener('drop', handleDrop);
     col.addEventListener('dragover', allowDrop);
   });
+  row.querySelector('.logo').style.pointerEvents = 'auto';
 };
 
 const displayClue = (rightColor, rightColorAndPos, attempt) => {
@@ -31,12 +43,20 @@ const checkCode = function() {
   const playerMoves = Array.from(row.querySelectorAll('.col'));
   const playerCode = playerMoves.map(move => move.style.backgroundColor);
   const { rightColorCount, rightColorAndPosCount, attempt } = this.compareCode( playerCode );
+  if(this.isCodeCracked(rightColorAndPosCount)) alert('code cracked');
+  if(attempt === 17 ) alert('limit reached');
   displayClue(rightColorCount, rightColorAndPosCount, attempt);
+  disableRow(attempt);
+  const noOfAttempt = this.countAttempt();
+  enableRow(noOfAttempt);
 };
 
 const attachEventListener = game => {
-  const checkButton = document.querySelector('.logo');
-  checkButton.addEventListener('click', checkCode.bind(game));
+  const checkButtons = document.querySelectorAll('.logo');
+  checkButtons.forEach(button => {
+    button.addEventListener('click', checkCode.bind(game));
+    button.style.pointerEvents = 'none';
+  })
 };
 
 const main = () => {
