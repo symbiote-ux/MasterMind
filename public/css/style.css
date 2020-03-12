@@ -54,7 +54,7 @@ body {
 #playerMoveBox {
   width: 340px;
   height: 100%;
-  margin: 0px 8px 0px;
+  margin: -4px 8px 0px;
   display: flex;
   flex-flow: column-reverse;
 }
@@ -64,7 +64,7 @@ body {
   height: 100%;
   display: flex;
   flex-flow: column-reverse;
-  margin: 0px 20px 0px;
+  margin: -5px 20px 0px;
 }
 
 .clueRow {
@@ -83,8 +83,8 @@ body {
 }
 
 #colorsBox {
-  width: 40px;
-  height: 350px;
+  width: 50px;
+  height: 450px;
   margin-top: 120px;
 }
 
