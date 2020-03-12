@@ -43,8 +43,14 @@ const checkCode = function() {
   const playerMoves = Array.from(row.querySelectorAll('.col'));
   const playerCode = playerMoves.map(move => move.style.backgroundColor);
   const { rightColorCount, rightColorAndPosCount, attempt } = this.compareCode( playerCode );
-  if(this.isCodeCracked(rightColorAndPosCount)) alert('code cracked');
-  if(attempt === 17 ) alert('limit reached');
+  if(this.isCodeCracked(rightColorAndPosCount)) {
+    fillCode(this.keyCode);
+    alert('code cracked');
+  }
+  if(attempt === 17 ){
+    fillCode(this.keyCode);
+    alert('limit reached');
+  }
   displayClue(rightColorCount, rightColorAndPosCount, attempt);
   disableRow(attempt);
   const noOfAttempt = this.countAttempt();
@@ -63,7 +69,6 @@ const main = () => {
   setup();
   const game = Game.createCode();
   attachEventListener(game);
-  fillCode(game.keyCode);
   enableRow();
 };
 
