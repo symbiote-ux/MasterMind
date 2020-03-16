@@ -109,7 +109,6 @@ body {
   border-radius: 4px;
   margin: 1px 3px 7px;
   box-shadow: -1px -1px 4px 1px rgba(0, 0, 0, 0.2);
-  
 }
 
 .logo:hover,
@@ -124,4 +123,70 @@ body {
   margin: 5px 5px 10px;
   border-radius: 10px;
   box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+#msg {
+  font-size: 40px;
+  width: 450px;
+  height: 50px;
+  position: absolute;
+  margin: 200px 0px 0px 450px;
+  color: magenta;
+  display: none;
+}
+
+#clue-def {
+  width: 350px;
+  height: 150px;
+  position: absolute;
+  border-radius: 7px;
+  margin: 500px 0px 0px 25px;
+  text-align: center;
+  padding-top: 10px;
+  font-size: x-large;
+  font-family: sans-serif;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+#clue-green,
+#clue-yellow {
+  width: 25px;
+  height: 40px;
+  border-radius: 12px;
+  margin: 10px 25px 0px 15px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+#clue-green {
+  background: green;
+}
+
+#clue-yellow {
+  background: yellow;
+}
+
+.box {
+  width: 340px;
+  height: 50px;
+  display: flex;
+  font-size: 20px;
+}
+
+#info {
+  text-align: center;
+  padding-top: 10px;
+  font-size: x-large;
+  width: 350px;
+  height: 220px;
+  position: absolute;
+  margin: 100px 0px 0px 25px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 7px;
+}
+
+#info > li {
+  text-align: left;
+  margin: 10px;
+  font-family: sans-serif;
+  font-size: 20px;
 }
